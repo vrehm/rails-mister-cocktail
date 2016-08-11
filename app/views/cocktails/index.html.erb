@@ -1,14 +1,17 @@
 <div class="container-fluid">
   <div class="row">
+    <div class="col-xs-12 text-center">
+      <h1>Our last cocktails</h1>
+    </div>
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
-<!--         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%#= cocktail.background_url %>');"> -->
-<!--           <div class="card-category"><%#= cocktail.category %></div> -->
-<!--           <div class="card-description"> -->
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cocktail.background_url %>');">
+          <div class="card-category"><%#= cocktail.category %></div>
+          <div class="card-description">
             <h2><%= cocktail.name %></h2>
-<!--           </div> -->
+          </div>
           <%= link_to '', cocktail_path(cocktail), class: "card-link" %>
-<!--         </div> -->
+        </div>
       </div>
     <% end %>
   </div>
