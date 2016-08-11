@@ -1,6 +1,11 @@
 <h1>Add a dose</h1>
 <%= simple_form_for [@cocktail, @ingredient, @dose] do |f| %>
   <%= f.error_notification %>
+  <% if @dose.errors.any? %>
+    <% @dose.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
 
   <%= f.input :description %>
   <%= f.association :ingredient, collection: @ingredients, prompt: "Choose an ingredient" %>
