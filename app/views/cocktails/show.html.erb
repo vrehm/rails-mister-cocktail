@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-8">
+          <h1><%= @cocktail.name %></h1>
+          <!-- <h3>Category: <#%= @cocktail.category %></h3>
+          <p>Address: <#%= @cocktail.address %></p>
+          <p>Phone number: <#%= @cocktail.phone_number %></p>
+          <h3>Reviews:</h3>
+          <ul class="list-unstyled">
+            <#% @cocktail.reviews.each do |review| %>
+              <li>
+                <p>" <#%= review.content %> "</p>
+                <li>
+                <#% review.rating.times do %>
+                  <i class="fa fa-star"></i>
+                <#% end %>
+                <#% (5 - review.rating).times do %>
+                  <i class="fa fa-star-o"></i>
+                <#% end %>
+                </li>
+              </li>
+              <br>
+            <#% end %>
+          </ul>
+      </div> -->
+      <div class="col-xs-4">
+        <%= image_tag @cocktail.background_url, {class: "avatar-square-large"} %>
+        <p class="text-center padded">
+          <%= link_to 'Return to cocktails', cocktails_path, class: "btn btn-danger" %>
+          <%#= link_to 'Create a dose for #{@cocktail.name}', new_cocktail_dose_path(@cocktail), class: "btn btn-danger" %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
