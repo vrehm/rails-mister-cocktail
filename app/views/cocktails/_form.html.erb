@@ -2,10 +2,12 @@
   <%= f.error_notification %>
 
   <%= f.input :name %>
-  <%= f.input :background_url %>
-  <div id="dropzone-area" style="width:400px;height:400px;display:block;margin:20px auto;border:1px solid red;"></div>
+  <%#= f.input :background_url %>
+  <div id="dropzone-area" class="text-center">
+    <h1>Drop your image there</h1>
+  </div>
   <%= hidden_field_tag :public_id %>
-  <%= f.button :submit %>
+  <%= f.button :submit, :class => "form-control" %>
 <% end %>
 
 
