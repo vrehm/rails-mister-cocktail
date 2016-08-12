@@ -21,7 +21,7 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :background_url)
+    params.require(:cocktail).permit(:name, :photo, :photo_cache) #:background_url)
   end
 
   def set_cocktail
