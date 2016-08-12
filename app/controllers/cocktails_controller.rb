@@ -11,6 +11,7 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
+    @cocktail.cloudinary_public_id = params[:public_id]
     @cocktail.save
     redirect_to cocktail_path(@cocktail)
   end
@@ -21,7 +22,7 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :photo, :photo_cache) #:background_url)
+    params.require(:cocktail).permit(:name, :background_url, :cloudinary_public_id)
   end
 
   def set_cocktail

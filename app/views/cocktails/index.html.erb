@@ -5,7 +5,8 @@
     </div>
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cocktail.photo.url %>');">
+      <% cocktail.cloudinary_public_id ? url_cloudinary = "https://res.cloudinary.com/dhujfzatq/image/upload/".concat(cocktail.cloudinary_public_id).concat(".jpg") : '' %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= url_cloudinary %>');">
           <div class="card-category"><%#= cocktail.doses.count %></div>
           <div class="card-description">
             <h2><%= cocktail.name %></h2>

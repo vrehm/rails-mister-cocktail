@@ -3,8 +3,31 @@
 
   <%= f.input :name %>
   <%#= f.input :background_url %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
+  <div id="dropzone-area" class="text-center">
+    <h1>Drop your image there</h1>
+  </div>
+  <%= hidden_field_tag :public_id %>
+  <%= f.button :submit, :class => "form-control" %>
+<% end %>
 
-  <%= f.button :submit %>
+
+<% content_for(:after_js) do %>
+
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/dropzone.js"></script>
+        <script type="text/javascript">
+        var myDropzone = new Dropzone(document.getElementById('dropzone-area'), {
+          uploadMultiple: false,
+          acceptedFiles:'.jpg,.png,.jpeg,.gif',
+          parallelUploads: 6,
+          url: 'https://api.cloudinary.com/v1_1/dhujfzatq/image/upload'
+        });
+        myDropzone.on('sending', function (file, xhr, formData) {
+          formData.append('api_key', 132432315821441);
+          formData.append('timestamp', Date.now() / 1000 | 0);
+          formData.append('upload_preset', 'dropzone_mister_cocktail');
+        });
+        myDropzone.on('success', function (file, response) {
+          $("#public_id").val(response.public_id);
+        });
+  </script>
 <% end %>
