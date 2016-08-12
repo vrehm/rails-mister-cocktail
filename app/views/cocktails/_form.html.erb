@@ -22,7 +22,7 @@
           url: 'https://api.cloudinary.com/v1_1/dhujfzatq/image/upload'
         });
         myDropzone.on('sending', function (file, xhr, formData) {
-          formData.append('api_key', 132432315821441);
+          formData.append('api_key', <%= ENV["CLOUDINARY_API_KEY"] %>);
           formData.append('timestamp', Date.now() / 1000 | 0);
           formData.append('upload_preset', 'dropzone_mister_cocktail');
         });
