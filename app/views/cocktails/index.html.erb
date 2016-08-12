@@ -2,7 +2,23 @@
   <div class="row">
     <div class="col-xs-12 text-center">
       <h1>Our last cocktails</h1>
-      <%= cl_image_tag("vmqneypnjemhtc0o6lmo", :width=>200, :height=>200, :gravity=>"face", :crop=>"thumb") %>
+
+      <div id="dropzone-area" style="width:400px;height:400px;display:block;margin:20px auto;border:1px solid red;"></div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/dropzone.js"></script>
+        <script type="text/javascript">
+        var myDropzone = new Dropzone(document.getElementById('dropzone-area'), {
+          uploadMultiple: false,
+          acceptedFiles:'.jpg,.png,.jpeg,.gif',
+          parallelUploads: 6,
+          url: 'https://api.cloudinary.com/v1_1/dhujfzatq/image/upload'
+        });
+        myDropzone.on('sending', function (file, xhr, formData) {
+          formData.append('api_key', 132432315821441);
+          formData.append('timestamp', Date.now() / 1000 | 0);
+          formData.append('upload_preset', 'dropzone_mister_cocktail');
+        });
+        </script>
+
     </div>
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
