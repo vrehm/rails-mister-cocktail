@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-xs-12 text-center">
       <h1>Our last cocktails</h1>
+      <%= cl_image_tag("vmqneypnjemhtc0o6lmo", :width=>200, :height=>200, :gravity=>"face", :crop=>"thumb") %>
     </div>
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
