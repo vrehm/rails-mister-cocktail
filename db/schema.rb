@@ -17,10 +17,8 @@ ActiveRecord::Schema.define(version: 20160812114119) do
 
   create_table "cocktails", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                                                      null: false
-    t.datetime "updated_at",                                                      null: false
-    t.string   "background_url",       default: "https://unsplash.it/g/1280/720"
-    t.string   "photo"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "cloudinary_public_id"
   end
 
