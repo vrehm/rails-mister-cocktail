@@ -17,7 +17,7 @@
           </ul>
       </div>
       <div class="col-xs-4">
-        <%= image_tag @cocktail.background_url, {class: "avatar-square-large"} %>
+        <%= cl_image_tag(@cocktail.cloudinary_public_id, width: 400, height: 300, crop: :fill) %>
         <p class="text-center padded">
           <%= link_to 'Return to cocktails', cocktails_path, class: "btn btn-danger" %>
           <%= link_to 'New dose', new_cocktail_dose_path(@cocktail), class: "btn btn-danger" %>

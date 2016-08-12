@@ -17,5 +17,7 @@
     <div class="wrapper padded">
       <%= yield %>
     </div>
+
+    <%= yield(:after_js)%>
   </body>
 </html>
