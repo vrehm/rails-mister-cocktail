@@ -7,7 +7,7 @@
     <h1>Drop your image there</h1>
   </div>
   <%= hidden_field_tag :public_id %>
-  <%= f.button :submit, :class => "form-control", :id => "submit_button" %>
+  <%= f.button :submit, :class => "form-control btn btn-danger", :id => "submit_button" %>
 <% end %>
 
 
@@ -25,11 +25,11 @@
           formData.append('api_key', <%= ENV["CLOUDINARY_API_KEY"] %>);
           formData.append('timestamp', Date.now() / 1000 | 0);
           formData.append('upload_preset', 'dropzone_mister_cocktail');
-          $('#submit_button').val('Loading...');
+          $('#submit_button').toggleClass("btn-danger").val('Loading...');
         });
         myDropzone.on('success', function (file, response) {
           $("#public_id").val(response.public_id);
-          $('#submit_button').val('Create Cocktail');
+          $('#submit_button').toggleClass("btn-danger").val('Create Cocktail');
         });
   </script>
 <% end %>
