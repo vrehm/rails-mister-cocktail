@@ -22,9 +22,11 @@
           url: 'https://api.cloudinary.com/v1_1/dhujfzatq/image/upload'
         });
         myDropzone.on('sending', function (file, xhr, formData) {
+          var fileNameClean = file.name.replace('.jpg', '').replace('.png', '').replace('.jpeg', '').replace('.gif', '');
           formData.append('api_key', <%= ENV["CLOUDINARY_API_KEY"] %>);
           formData.append('timestamp', Date.now() / 1000 | 0);
           formData.append('upload_preset', 'dropzone_mister_cocktail');
+          formData.append('public_id', fileNameClean);
           $('#submit_button').toggleClass("btn-danger").val('Loading...');
         });
         myDropzone.on('success', function (file, response) {
